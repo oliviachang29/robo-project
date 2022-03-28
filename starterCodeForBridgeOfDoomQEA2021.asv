@@ -1,6 +1,7 @@
 function starterCodeForBridgeOfDoomQEA2021()
 % Insert any setup code you want to run here
-clear;
+
+
 % % u will be our parameter
 % syms u;
 % 
@@ -70,6 +71,7 @@ placeNeato(bridgeStart(1),  bridgeStart(2), startingThat(1), startingThat(2));
 pause(2);
 
 % start tracking time
+pub = rospublisher('raw_vel', 'islatching', false);
 rostic;
 % time to drive!!
 while true
@@ -88,4 +90,5 @@ while true
     drive(timeBounds, leftSpeed, rightSpeed);
 end
 stop;
+clear pub;
 end
